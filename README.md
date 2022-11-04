@@ -45,3 +45,17 @@ services:
       - DEPENDENCY_CONTAINER=vpn-dal
       - COMPOSE_PROJECT_NAME=rtorrent
 ```
+
+And here's what the container logs when it's doing its thing. In this case, it happened to poll before vpn-dal had reached it's safe init time (30 seconds), so it waits at least that long before starting the dependency.
+
+```
+2022-11-04 Fri 18:32:20 Waiting 10 seconds for vpn-dal to initialize...
+2022-11-04 Fri 18:32:30 rtorrent was started before vpn-dal initialized. Recreating...
+Stopping rtorrent ... 
+Stopping rtorrent ... done
+Removing rtorrent ... 
+Removing rtorrent ... done
+Going to remove rtorrent
+Creating rtorrent ... 
+Creating rtorrent ... done
+```
