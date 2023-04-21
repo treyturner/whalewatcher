@@ -31,15 +31,13 @@ services:
     # whatever environment variables and volumes you need
 
   watcher:
-    image: whalewatcher
+    image: treyturner/whalewatcher
     container_name: rtorrent_watcher
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       # YOU MUST MODIFY THE HOST PATH TO CORRECTLY MOUNT YOUR docker-compose.yml INSIDE THE CONTAINER
       - /mnt/cache/appdata/portainer_data/compose/28/docker-compose.yml:/root/docker-compose.yml
     restart: unless-stopped
-    labels:
-      - com.centurylinklabs.watchtower.enable=false
     environment:
       - DEPENDENT_CONTAINER=rtorrent
       - DEPENDENCY_CONTAINER=vpn-dal
