@@ -1,4 +1,10 @@
+
+
 # whalewatcher
+
+### ⚠️ **NOTE**: Repository has been archived as [watchtower](https://containrrr.dev/watchtower) now supports [linked containers](https://containrrr.dev/watchtower/linked-containers/) and [lifecycle hooks](https://containrrr.dev/watchtower/lifecycle-hooks/).
+
+<hr>
 
 Recreate a Docker container if a container it depends upon is recreated.
 
